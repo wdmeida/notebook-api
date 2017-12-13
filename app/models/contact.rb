@@ -1,6 +1,19 @@
 class Contact < ApplicationRecord
   belongs_to :kind #, optional: true
 
+  # def birthdate_br
+  #   I18n.l(self.birthdate) unless self.birthdate.blank?
+  # end
+
+  def to_br
+    {
+      name: self.name,
+      email: self.email,
+      birthdate: (I18n.l(self.birthdate) unless self.birthdate.blank?),
+      kind_id: self.kind_id
+    }
+  end
+
   # def author
   #   'Wagner Almeida'
   # end
@@ -19,5 +32,13 @@ class Contact < ApplicationRecord
   #       }
   #     }
   #   )
+  # end
+
+  # def hello
+  #   I18n.t('hello')
+  # end
+
+  # def i18n
+  #   I18n.default_locale
   # end
 end
