@@ -50,9 +50,10 @@ class ContactsController < ApplicationController
                                       :email, 
                                       :birthdate, 
                                       :kind_id,
-                                      phones_attributes: [:id, 
-                                                          :number, 
-                                                          :_destroy]
-                                      )
+                                      phones_attributes: [
+                                        :id, 
+                                        :number, 
+                                        :_destroy
+                                      ])
     end
 end
