@@ -1,0 +1,3 @@
+'pt-BR':
+  error:
+    not_found: "Registro não encontrado. Por favor, informe um ID válido."
