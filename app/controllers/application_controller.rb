@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  before_filter :ensure_json_request
+  before_action :ensure_json_request
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
