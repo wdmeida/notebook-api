@@ -1,16 +1,17 @@
 class ContactsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_contact, only: [:show, :update, :destroy]
 
   # GET /contacts
   def index
     @contacts = Contact.all
 
-    render json: @contacts #, methods: [:birthdate_br]
+    render json: @contacts
   end
 
   # GET /contacts/1
   def show
-    render json: @contact, include: [:kind, :phones, :address]
+    render json: @contact, include: [:kind, :address, :phones]
   end
 
   # POST /contacts
@@ -46,19 +47,20 @@ class ContactsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def contact_params
-      params.require(:contact).permit(:name, 
-                                      :email, 
-                                      :birthdate, 
-                                      :kind_id,
-                                      phones_attributes: [
-                                        :id, 
-                                        :number, 
-                                        :_destroy
-                                      ],
-                                      address_attributes: [
-                                        :id,
-                                        :street,
-                                        :city
-                                      ])
+      # params.require(:contact).permit(:name, 
+      #                                 :email, 
+      #                                 :birthdate, 
+      #                                 :kind_id,
+      #                                 phones_attributes: [
+      #                                   :id, 
+      #                                   :number, 
+      #                                   :_destroy
+      #                                 ],
+      #                                 address_attributes: [
+      #                                   :id,
+      #                                   :street,
+      #                                   :city
+      #                                 ])
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params)
     end
 end
