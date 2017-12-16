@@ -1,4 +1,5 @@
 class PhonesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_contact
 
   # POST /contacts/:contact_id/phone   
