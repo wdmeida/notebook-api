@@ -1,4 +1,5 @@
 class KindsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_kind, only: [:show, :update, :destroy]
 
   # GET /kinds
@@ -8,7 +9,7 @@ class KindsController < ApplicationController
     render json: @kinds
   end
 
-  # GET /kinds/1
+  # GET /kinds/:kind_id
   def show
     render json: @kind
   end
@@ -24,7 +25,7 @@ class KindsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /kinds/1
+  # PATCH/PUT /kinds/:kind_id
   def update
     if @kind.update(kind_params)
       render json: @kind
@@ -33,7 +34,7 @@ class KindsController < ApplicationController
     end
   end
 
-  # DELETE /kinds/1
+  # DELETE /kinds/:kind_id
   def destroy
     @kind.destroy
   end
