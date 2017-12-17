@@ -32,7 +32,10 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'foreman'
 # Token based authentication for Rails JSON APIs. Designed to work with jToker and ng-token-auth.
 gem 'devise_token_auth'
+# Translations for the devise gem 
 gem 'devise-i18n'
+# A plugin for versioning Rails based RESTful APIs.
+gem 'versionist'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
