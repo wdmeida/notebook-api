@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
+  
   before_action :ensure_json_request
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
@@ -7,8 +8,14 @@ class ApplicationController < ActionController::API
   private
 
     def ensure_json_request
-      return if request.headers['Accept'] =~ /vnd\.api\+json/
-      head :not_acceptable
+      unless request.headers['Accept'] =~ /vnd\.api\+json/
+        head :not_acceptable
+      else
+        unless request.get?
+          return if request.headers['Content-Type'] =~ /vnd\.api\+json/
+          head :unsupported_media_type
+        end
+      end 
     end
 
     def record_not_found
