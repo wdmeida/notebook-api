@@ -9,6 +9,9 @@ module V1
       @contacts = Contact.all.page(params[:page].try(:[], :number))
                              .per(params[:page].try(:[], :size))
 
+      # Cache-Control
+      # expires_in 30.seconds, public: true
+
       # api-paginate with paginate links in header
       # paginate json: @contacts
       render json: @contacts
