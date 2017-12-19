@@ -14,7 +14,10 @@ module V1
 
       # api-paginate with paginate links in header
       # paginate json: @contacts
-      render json: @contacts
+
+      if stale?(etag: @contacts)
+        render json: @contacts        
+      end
     end
 
     # GET /contacts/1
