@@ -46,6 +46,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # Faker refactored.
   gem 'faker'
+  # RSpec for Rails-3+
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do
