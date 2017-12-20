@@ -13,7 +13,7 @@ class Contact < ApplicationRecord
 
   # Validations
   validates_presence_of :kind
-  validates_presence_of :address
+  # validates_presence_of :address
 
   # def birthdate_br
   #   I18n.l(self.birthdate) unless self.birthdate.blank?
