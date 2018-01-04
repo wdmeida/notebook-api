@@ -26,9 +26,9 @@ Execute a task a seguir para definir as informações iniciais e de testes para 
 
 ```$ rails dev:setup```
 
-```**As rotas não serão detalhadas por ser uma API desenvolvida apenas com fins acadêmicos, mas para visualizar as mesmas, basta executar o comando:**```
+> **As rotas não serão detalhadas por ser uma API desenvolvida apenas com fins acadêmicos, mas para visualizar as mesmas, basta executar o comando:**
 
-```$ rails routes```
+> ```$ rails routes```
 
 Para executar a api, basta executar o comando:
 
