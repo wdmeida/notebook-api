@@ -1,24 +1,35 @@
-# README
+# INSTAGRAM CLONE WEB
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## O Projeto
 
-Things you may want to cover:
+Projeto desenvolvido durante o curso [**Desenvolvendo REST / RESTful APIs com Ruby on Rails**](https://www.udemy.com/rubyonrails-api/learn/v4/overview). 
+O projeto consistiu no desenvolvimento de uma API para armazenar informações de contatos (agenda). Foi desenvolvido utilizando [*Ruby on Rails*](https://rubyonrails.org) e as especificações [*JSON API*](http://jsonapi.org).
 
-* Ruby version
+## Requisitos
 
-* System dependencies
+Para executar o projeto é necessário ter instalado:
 
-* Configuration
+* [Ruby on Rails](https://rubyonrails.org)
 
-* Database creation
 
-* Database initialization
+## Executando a api
 
-* How to run the test suite
+Após fazer o clone do repositório para um diretório local, entre na pasta ***notebook-api*** através do terminal e instale as dependências:
 
-* Services (job queues, cache servers, search engines, etc.)
+```$ bundle```
 
-* Deployment instructions
+Crie a base de dados e execute as migrações:
 
-* ...
+```$ rails db:create db:migrate```
+
+Execute a task a seguir para definir as informações iniciais e de testes para a api:
+
+```$ rails dev:setup```
+
+*As rotas não serão detalhadas por ser uma API desenvolvida apenas com fins acadêmicos, mas para visualizar as mesmas, basta executar o comando:
+
+```$ rails routes```
+
+Para executar a api, basta executar o comando:
+
+```$ foreman start```
